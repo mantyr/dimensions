@@ -50,6 +50,9 @@ func (d *Dimension) Parse(value string) *Dimension {
 
 func (d *Dimension) parse_value() string {
     v := strings.Join(regexp_numbers.FindAllString(d.Value_source, -1), "")
+    if len(v) == 0 {
+        return "0"
+    }
     v  = strings.Replace(v, ",", ".", -1)
 
     c := strings.IndexRune(v, '.')
@@ -78,6 +81,9 @@ func (d *Dimension) parse_type() string {
             return d.default_type
     }
 
+    if len(p.Value_source) == 0 {
+        return d.default_type
+    }
     for _, value := range values {
         if strings.Index(strings.ToLower(d.Value_source), value.Search) > -1 {
             return value.Result

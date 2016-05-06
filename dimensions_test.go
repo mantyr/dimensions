@@ -19,6 +19,7 @@ var weightTests = []ParseTest{
     {"10",             "10",    10, 10, 10,    "DEFAULT_TYPE"},
     {"10 kg.",         "10",    10, 10, 10,    "KG"},
     {"10 кг.",         "10",    10, 10, 10,    "KG"},
+    {"",               "0",      0,  0,  0,    "DEFAULT_TYPE"},
 }
 
 func TestWeight(t *testing.T) {
