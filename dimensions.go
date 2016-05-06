@@ -81,7 +81,7 @@ func (d *Dimension) parse_type() string {
             return d.default_type
     }
 
-    if len(p.Value_source) == 0 {
+    if len(d.Value_source) == 0 {
         return d.default_type
     }
     for _, value := range values {
